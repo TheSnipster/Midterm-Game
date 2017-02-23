@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mouseDrag : MonoBehaviour {
+//this script causes the object to pass thru the terrain and partially thru each other 
+
+public class mouseDrag : MonoBehaviour { //this script causes the object to pass thru the
 	float distance = 45;
 
 	void OnMouseDrag(){

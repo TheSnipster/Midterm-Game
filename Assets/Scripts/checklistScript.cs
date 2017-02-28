@@ -24,6 +24,8 @@ public class checklistScript : MonoBehaviour
 	public GameObject bowl;
 	public GameObject cake;
 
+	bool isBowlGone = false; 
+
 
 	// Use this for initialization
 	void Start ()
@@ -32,36 +34,45 @@ public class checklistScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	//	void Update () {
-	//		if (butterToggle.isOn && flourToggle.isOn && milkToggle.isOn && sugarToggle.isOn && eggToggle.isOn && saltToggle.isOn &&sparkleToggle.isOn) {
-	//			winText.text = "THE CAKE IS A LIE!";
-	//		} else {
-	//			winText.text = null;
-	//		}
-	//	}
-	//
-	//	IEnumerator CakeAppear(){
-	//		if (winText.text == "THE CAKE IS A LIE!"){
-	//			yield return new WaitForSeconds (2);
-	//			Destroy(bowl.gameObject);
-	//
-	//			Instantiate(cake, bowl.transform.position, bowl.transform.rotation);
-	//		}
-	//	}
-
-	IEnumerator CakeAppear ()
-	{
-		if (butterToggle.isOn && flourToggle.isOn && milkToggle.isOn && sugarToggle.isOn && eggToggle.isOn && saltToggle.isOn && sparkleToggle.isOn) {
-			winText.text = "THE CAKE IS A LIE!";
-			yield return new WaitForSeconds (2);
-		
-			GameObject LieCake = Instantiate (cake, bowl.transform.position, bowl.transform.rotation);
-			Destroy (bowl.gameObject);
-
-		} else {
-			winText.text = null;
-
+		void Update () {
+			if (isBowlGone == false && butterToggle.isOn && flourToggle.isOn && milkToggle.isOn && sugarToggle.isOn && eggToggle.isOn && saltToggle.isOn &&sparkleToggle.isOn) {
+				winText.text = "THE CAKE IS A LIE!";
+				isBowlGone = true;
+				cakeAppear ();
+			} else {
+				winText.text = null; 
+			}
 		}
+
+	void cakeAppear(){
+		Instantiate (cake, bowl.transform.position, bowl.transform.rotation);
+		Destroy (bowl.gameObject);
 	}
+
+
+//		IEnumerator CakeAppear(){
+//		if (winText.text = !null) {
+//			yield return new WaitForSeconds (2);
+//				
+//	
+//			Instantiate (cake, bowl.transform.position, bowl.transform.rotation);
+//			Destroy (bowl.gameObject);
+//		}
+//	}
+
+//	IEnumerator CakeAppear ()
+//	{
+//		if (butterToggle.isOn && flourToggle.isOn && milkToggle.isOn && sugarToggle.isOn && eggToggle.isOn && saltToggle.isOn && sparkleToggle.isOn) {
+//			winText.text = "THE CAKE IS A LIE!";
+//			yield return new WaitForSeconds (2);
+//		
+//			GameObject LieCake = Instantiate (cake, bowl.transform.position, bowl.transform.rotation);
+//			Destroy (bowl.gameObject);
+//
+//		} else {
+//			winText.text = null;
+//
+//		}
+//	}
 
 }

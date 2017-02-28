@@ -22,7 +22,7 @@ public class mouseLook : MonoBehaviour {
 
 		// 2b. clamp / constrain the X angle (pitch) so we can't look too far up or down
 		upDownLook -= mouseY; // minus-equals un-inverts the mouse-look-Y
-		upDownLook = Mathf.Clamp( upDownLook, -10f, 30f ); // constrain look 80 degrees up or down
+		upDownLook = Mathf.Clamp( upDownLook, -30f, 60f ); // constrain look 30 degrees up or down
 
 		// 3. unroll the camera
 		// Debug.Log(transform.eulerAngles.z); // this is OK. you can read the value

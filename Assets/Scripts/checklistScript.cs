@@ -36,9 +36,13 @@ public class checklistScript : MonoBehaviour
 	// Update is called once per frame
 		void Update () {
 			if (isBowlGone == false && butterToggle.isOn && flourToggle.isOn && milkToggle.isOn && sugarToggle.isOn && eggToggle.isOn && saltToggle.isOn &&sparkleToggle.isOn) {
-				winText.text = "THE CAKE IS A LIE!";
 				isBowlGone = true;
 				cakeAppear ();
+			if (isBowlGone == true) {
+				winText.text = "THE CAKE IS A LIE!";
+			}
+
+
 			} else {
 				winText.text = null; 
 			}

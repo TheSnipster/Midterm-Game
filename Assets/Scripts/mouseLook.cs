@@ -14,11 +14,11 @@ public class mouseLook : MonoBehaviour {
 //		}
 
 		// 1. get mouse input data
-		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 300f; // horizontal mouseSpeed
-		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 200f; // vertical mouseSpeed
+		float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * 150f; // horizontal mouseSpeed
+		float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * 100f; // vertical mouseSpeed
 
 		// 2. rotate the camera
-		transform.Rotate( 0f, mouseX, 0f );
+		//transform.Rotate( 0f, mouseX, 0f );
 
 		// 2b. clamp / constrain the X angle (pitch) so we can't look too far up or down
 		upDownLook -= mouseY; // minus-equals un-inverts the mouse-look-Y

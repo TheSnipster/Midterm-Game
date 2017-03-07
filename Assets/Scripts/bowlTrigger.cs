@@ -7,6 +7,7 @@ public class bowlTrigger : MonoBehaviour
 {
 	//put on trigger
 	public Collider bowlFilter;
+	public Collider ingredient;
 	//	public Collider bowlSide1;
 	//	public Collider bowlSide2;
 	//	public Collider bowlSide3;
@@ -39,6 +40,8 @@ public class bowlTrigger : MonoBehaviour
 	{
 		if (other.tag == "Butter") {
 			butterCount++;
+			ingredient = other;
+			ingredient.transform.SetParent (transform);
 			if (butterCount == 1) {
 				butterToggle.isOn = true;
 
@@ -46,6 +49,8 @@ public class bowlTrigger : MonoBehaviour
 		}
 		if (other.tag == "Flour") {
 			flourCount++;
+			ingredient = other;
+			ingredient.transform.SetParent (transform);
 			if (flourCount == 1) {
 				flourToggle.isOn = true;
 			}
@@ -53,6 +58,8 @@ public class bowlTrigger : MonoBehaviour
 
 		if (other.tag == "Milk") {
 			milkCount++;
+			ingredient = other;
+			ingredient.transform.SetParent (transform);
 			if (milkCount == 1) {
 				milkToggle.isOn = true;
 			}
@@ -60,6 +67,8 @@ public class bowlTrigger : MonoBehaviour
 
 		if (other.tag == "Sugar") {
 			sugarCount++;
+			ingredient = other;
+			ingredient.transform.SetParent (transform);
 			if (sugarCount == 1) {
 				sugarToggle.isOn = true;
 			}
@@ -67,6 +76,8 @@ public class bowlTrigger : MonoBehaviour
 
 		if (other.tag == "Eggs") {
 			eggCount++;
+			ingredient = other;
+			ingredient.transform.SetParent (transform);
 			if (eggCount == 3) {
 				eggToggle.isOn = true;
 			}
@@ -74,6 +85,8 @@ public class bowlTrigger : MonoBehaviour
 
 		if (other.tag == "Salt") {
 			saltCount++;
+			ingredient = other;
+			ingredient.transform.SetParent (transform);
 			if (saltCount == 1) {
 				saltToggle.isOn = true;
 			}
@@ -81,6 +94,8 @@ public class bowlTrigger : MonoBehaviour
 
 		if (other.tag == "Sparkles") {
 			sparkleCount++;
+			ingredient = other;
+			ingredient.transform.SetParent (transform);
 			if (sparkleCount == 1) {
 				sparkleToggle.isOn = true;
 			}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // controls checklist
 //checks if all the items in the checklist is checked => sth happens
@@ -23,6 +24,7 @@ public class checklistScript : MonoBehaviour
 
 	public GameObject bowl;
 	public GameObject cake;
+	public GameObject butter;
 
 	bool isBowlGone = false;
 
@@ -42,7 +44,6 @@ public class checklistScript : MonoBehaviour
 			CakeAppear ();
 			if (isBowlGone == true) {
 				secondsCount += Time.deltaTime;
-				winText.text = "THE CAKE IS A LIE!";
 				Debug.Log (secondsCount);
 			}
 
@@ -54,16 +55,34 @@ public class checklistScript : MonoBehaviour
 	void CakeAppear ()
 	{
 		if (secondsCount > 2f) {
-			Instantiate (cake, bowl.transform.position, bowl.transform.rotation);
+			cake.gameObject.SetActive (true);
+			//Instantiate (cake, bowl.transform.position, bowl.transform.rotation);
 			if (bowl.gameObject != null) {
 				bowl.gameObject.SetActive (false);
+			}
+
+			if (secondsCount > 4f) {
+				winText.text = "THE CAKE IS A LIE!";
+
+				if (secondsCount > 6f && cake.gameObject != null) { 
+					cake.gameObject.SetActive (false);
+					Instantiate (butter, bowl.transform.position, bowl.transform.rotation);
+
+					if (secondsCount> 9f){
+						SceneManager.LoadScene(3);
+					}
+
+				}
+
 			}
 		}
 
 	}
 
+
+
 	//secondsCount += Time.deltaTime;
-	//isBowlGone == false 
+	//isBowlGone == false
 
 	//		IEnumerator CakeAppear(){
 	//		if (winText.text = !null) {

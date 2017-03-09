@@ -29,6 +29,8 @@ public class bowlTrigger : MonoBehaviour
 	public Toggle saltToggle;
 	public Toggle sparkleToggle;
 
+	public GameObject crack;
+
 
 	// Use this for initialization
 	void Start ()
@@ -42,10 +44,12 @@ public class bowlTrigger : MonoBehaviour
 			butterCount++;
 			ingredient = other;
 			ingredient.transform.SetParent (transform);
+			GameObject.FindGameObjectWithTag ("Butter").SetActive (false); 
+			crack.SetActive(true);
 			if (butterCount == 1) {
 				butterToggle.isOn = true;
-
 			}
+
 		}
 		if (other.tag == "Flour") {
 			flourCount++;

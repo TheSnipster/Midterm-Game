@@ -7,24 +7,21 @@ using UnityEngine.SceneManagement;
 // controls checklist
 //checks if all the items in the checklist is checked => sth happens
 
-public class checklistScript : MonoBehaviour
+public class cookieChecklist : MonoBehaviour
 {
 
 	[SerializeField]
 
 	public Toggle butterToggle;
 	public Toggle flourToggle;
-	public Toggle milkToggle;
 	public Toggle sugarToggle;
 	public Toggle eggToggle;
 	public Toggle saltToggle;
-	public Toggle sparkleToggle;
 
 	public Text winText;
 
 	public GameObject bowl;
-	public GameObject cake;
-	public GameObject butter;
+	public GameObject cookie;
 
 	bool isBowlGone = false;
 
@@ -39,9 +36,9 @@ public class checklistScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (butterToggle.isOn && flourToggle.isOn && milkToggle.isOn && sugarToggle.isOn && eggToggle.isOn && saltToggle.isOn && sparkleToggle.isOn) {
+		if (butterToggle.isOn && flourToggle.isOn && sugarToggle.isOn && eggToggle.isOn && saltToggle.isOn) {
 			isBowlGone = true;
-			CakeAppear ();
+			CookieAppear ();
 			if (isBowlGone == true) {
 				secondsCount += Time.deltaTime;
 				Debug.Log (secondsCount);
@@ -52,26 +49,19 @@ public class checklistScript : MonoBehaviour
 		}
 	}
 
-	void CakeAppear ()
+	void CookieAppear ()
 	{
 		if (secondsCount > 2f) {
-			cake.gameObject.SetActive (true);
+			cookie.gameObject.SetActive (true);
 			//Instantiate (cake, bowl.transform.position, bowl.transform.rotation);
 			if (bowl.gameObject != null) {
 				bowl.gameObject.SetActive (false);
 			}
 
 			if (secondsCount > 4f) {
-				winText.text = "THE CAKE IS A LIE!";
-
-				if (secondsCount > 6f && cake.gameObject != null) { 
-					cake.gameObject.SetActive (false);
-					Instantiate (butter, bowl.transform.position, bowl.transform.rotation);
-
-					if (secondsCount> 9f){
-						SceneManager.LoadScene(3);
-					}
-
+				winText.text = "YOU MADE COOKIES!";
+				if (secondsCount > 9f) {
+					SceneManager.LoadScene (3);
 				}
 
 			}
@@ -79,7 +69,7 @@ public class checklistScript : MonoBehaviour
 
 	}
 
-
+}
 
 	//secondsCount += Time.deltaTime;
 	//isBowlGone == false
@@ -108,5 +98,3 @@ public class checklistScript : MonoBehaviour
 	//
 	//		}
 	//	}
-
-}

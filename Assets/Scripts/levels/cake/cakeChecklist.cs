@@ -24,7 +24,7 @@ public class cakeChecklist : MonoBehaviour
 
 	public GameObject bowl;
 	public GameObject cake;
-	public GameObject butter;
+	public GameObject shit;
 
 	bool isBowlGone = false;
 
@@ -66,7 +66,7 @@ public class cakeChecklist : MonoBehaviour
 
 				if (secondsCount > 6f && cake.gameObject != null) { 
 					cake.gameObject.SetActive (false);
-					Instantiate (butter, bowl.transform.position, bowl.transform.rotation);
+					shit.SetActive (true);
 
 					if (secondsCount> 9f){
 						SceneManager.LoadScene(5);
